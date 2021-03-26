@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>My Website</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="program.html">Program</a>
+</li>
+<li>
+  <a href="references.html">References</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">My Website</h1>
+
+</div>
+
+
+<p>Hello, World! Ini adalah website saya yang membahasa tentang EBImage</p>
+<p><img src="data:image/png;base64,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" /></p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
